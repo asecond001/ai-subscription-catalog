@@ -116,29 +116,85 @@ interface ParsedPriceCandidate {
   snippet: string;
 }
 
-function scanPriceText(source: string): ParsedPriceCandidate[] {
+function normalizePriceBoundaries(source: string): string {
+  return source
+    .replace(/(\d)(?=(?:per|usd|billed|mo|month|yr|year|if|when))/gi, "$1 ")
+    .replace(/\bUSD(?=[A-Za-z])/gi, "USD ");
+}
+
+function clampSentenceWindow(
+  text: string,
+  prevEnd: number,
+  matchStart: number,
+  matchEnd: number,
+  nextStart: number
+): { start: number; end: number } {
+  let start = Math.max(prevEnd, matchStart - 24);
+  const before = text.slice(start, matchStart);
+  const beforeBreak = before.match(/.*(?:(?<!\d)\.\s|\)\.|[;\n])/s);
+  if (beforeBreak && beforeBreak[0]) {
+    start += beforeBreak[0].length;
+  }
+
+  let end = Math.min(nextStart, matchEnd + 56);
+  const after = text.slice(matchEnd, end);
+  const afterBreak = after.search(/(?<!\d)\.(?:\s|$)|[;\n]/);
+  if (afterBreak !== -1) {
+    end = matchEnd + afterBreak + 1;
+  }
+
+  return { start, end };
+}
+
+function scanPriceText(rawSource: string): ParsedPriceCandidate[] {
+  const source = normalizePriceBoundaries(rawSource);
   const found: ParsedPriceCandidate[] = [];
   const priceRegex = /\$\s*(\d{1,4}(?:,\d{3})*(?:\.\d{1,2})?)/g;
-  let match: RegExpExecArray | null;
 
+  interface RawMatch {
+    index: number;
+    endIndex: number;
+    rawNum: string;
+  }
+
+  const rawMatches: RawMatch[] = [];
+  let match: RegExpExecArray | null;
   while ((match = priceRegex.exec(source)) !== null) {
-    const rawNum = match[1];
-    if (!rawNum) {
-      continue;
+    if (match[1]) {
+      rawMatches.push({
+        index: match.index,
+        endIndex: match.index + match[0].length,
+        rawNum: match[1],
+      });
     }
-    const amount = Number.parseFloat(rawNum.replace(/,/g, ""));
+  }
+
+  for (let i = 0; i < rawMatches.length; i += 1) {
+    const m = rawMatches[i]!;
+    const amount = Number.parseFloat(m.rawNum.replace(/,/g, ""));
     if (!Number.isFinite(amount) || amount > 2000) {
       continue;
     }
 
-    const start = Math.max(0, match.index - 24);
-    const end = Math.min(source.length, match.index + match[0].length + 48);
-    const windowText = source.slice(start, end).toLowerCase();
+    const prevEnd = i > 0 ? rawMatches[i - 1]!.endIndex : 0;
+    const nextStart =
+      i + 1 < rawMatches.length ? rawMatches[i + 1]!.index : source.length;
+    const { start, end } = clampSentenceWindow(
+      source,
+      prevEnd,
+      m.index,
+      m.endIndex,
+      nextStart
+    );
+    const snippet = source.slice(start, end).trim();
+    const windowText = snippet.toLowerCase();
 
     const isAnnualTotal =
-      /\/\s*(?:yr|year)\b|\bper\s+year\b|\byearly\s+total\b/i.test(windowText);
+      /\/\s*(?:yr|year)\b|\bper\s+year\b|\byearly\s+total\b|\bbilled\s+up\s*front\b|\bupfront\s+annually\b/i.test(
+        windowText
+      );
     const isAnnualDiscountedMonthly =
-      /\bbilled\s+annually\b|\bwhen\s+billed\s+yearly\b|\bannual\s+plan\b/i.test(
+      /\bbilled\s+annually\b|\bwhen\s+billed\s+yearly\b|\bannual\s+(?:plan|subscription|discount|billing)\b|\bwith\s+annual\b/i.test(
         windowText
       );
     const hasExplicitMonthlyContext =
@@ -151,7 +207,7 @@ function scanPriceText(source: string): ParsedPriceCandidate[] {
       isAnnualTotal,
       isAnnualDiscountedMonthly,
       hasExplicitMonthlyContext,
-      snippet: source.slice(start, end).trim(),
+      snippet,
     });
   }
 

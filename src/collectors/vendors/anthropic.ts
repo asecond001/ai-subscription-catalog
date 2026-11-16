@@ -16,10 +16,8 @@ const SPECS: readonly PlanCardSpec[] = [
     template_id: "claude_pro",
     headingAliases: ["Pro", "Claude Pro"],
   },
-  {
-    template_id: "claude_team",
-    headingAliases: ["Team", "Claude Team"],
-  },
+  // Note: claude.com/pricing's generic Team card advertises the $25 chat-only Standard seat
+  // rather than the Claude Code seat (`claude_team` $30), so claude_team stays curated.
   {
     template_id: "claude_max_5x",
     headingAliases: ["Max", "Max 5x", "Claude Max 5x"],

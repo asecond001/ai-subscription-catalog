@@ -53,6 +53,40 @@ test("vendor HTML parsers extract monthly USD prices and ignore annual totals", 
     200
   );
 
+  const anthropicRealHtml = `
+    <section>
+      <div class="card">
+        <h3>Pro</h3>
+        <p>$17 Per month with annual subscription discount ($200 billed up front). $20 if billed monthly.</p>
+      </div>
+      <div class="card">
+        <h3>Max 5x</h3>
+        <p><span>$100</span><span>Per month</span></p>
+      </div>
+      <div class="card">
+        <h3>Max 20x</h3>
+        <p><span>$200</span><span>Per month</span></p>
+      </div>
+    </section>
+  `;
+  const anthropicLiveParsed = anthropic.parseHtml(anthropicRealHtml);
+  const claudeProLive = anthropicLiveParsed.find(
+    (p) => p.template_id === "claude_pro"
+  );
+  assert.equal(claudeProLive?.monthly_usd, 20);
+  assert.equal(claudeProLive?.annual_monthly_usd, 17);
+  assert.equal(claudeProLive?.confidence, "high");
+  const claudeMax5xLive = anthropicLiveParsed.find(
+    (p) => p.template_id === "claude_max_5x"
+  );
+  assert.equal(claudeMax5xLive?.monthly_usd, 100);
+  assert.equal(claudeMax5xLive?.confidence, "high");
+  const claudeMax20xLive = anthropicLiveParsed.find(
+    (p) => p.template_id === "claude_max_20x"
+  );
+  assert.equal(claudeMax20xLive?.monthly_usd, 200);
+  assert.equal(claudeMax20xLive?.confidence, "high");
+
   const openaiParsed = openai.parseHtml(await readFixture("openai.html"));
   assert.equal(
     openaiParsed.find((p) => p.template_id === "codex_plus")?.monthly_usd,
