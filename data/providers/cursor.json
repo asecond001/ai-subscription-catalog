@@ -1,0 +1,312 @@
+{
+  "provider": {
+    "provider_id": "cursor",
+    "vendor_id": "cursor",
+    "display_name": "Cursor",
+    "vendor_name": "Anysphere / Cursor",
+    "category": "ide_agent",
+    "official_pricing_url": "https://cursor.com/pricing",
+    "official_docs_url": "https://docs.cursor.com/",
+    "quota_observation_modes": ["local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "cursor_free",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 5000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor 免费体验档（有限的 Tab 补全与 Agent 试用额度）",
+      "description_en": "Cursor Free tier with limited chat and agent evaluation requests.",
+      "vendor_id": "cursor",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.25,
+      "highlights": [
+        "Limited agent & chat requests",
+        "Trial Tab autocomplete allowance",
+        "Zero monthly cost"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_plus",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Plus",
+      "monthly_fee_micro_usd": 8000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 10000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Plus 入门订阅（每周基础 Cursor / Grok 原生模型额度池）",
+      "description_en": "Cursor Plus introductory plan featuring a weekly native usage pool.",
+      "vendor_id": "cursor",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 8,
+        "annual_monthly_usd": 6.67,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Base weekly usage pool for native models",
+        "Annual billing option ($80/yr)",
+        "Entry tier of current Cursor lineup"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_pro_legacy",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Pro (Legacy)",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Pro 历史存量档位（含每月 20 USD 等效模型用量池）",
+      "description_en": "Cursor legacy Pro tier retained by existing subscribers with a 20 USD monthly included usage pool.",
+      "vendor_id": "cursor",
+      "tier": "pro",
+      "status": "legacy",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": 16,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 2.5,
+      "highlights": [
+        "Legacy $20/mo plan for existing subscribers",
+        "$20 included frontier model pool per month",
+        "Unlimited Tab completions"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_premium",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Premium",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 35000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Premium 主力订阅（Plus 的 4 倍用量，支持 Cloud Agents 与 Bugbot）",
+      "description_en": "Cursor Premium individual/team tier with 4x Plus usage, Cloud Agents, Bugbot, and third-party model routing.",
+      "vendor_id": "cursor",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 25,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 4,
+      "highlights": [
+        "4x Plus usage pool",
+        "Cloud Agents, Automations & Bugbot included",
+        "Annual billing option ($300/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_super",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Super",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 450000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Super 高配额订阅（Plus 的 15 倍用量与高峰期优先路由）",
+      "description_en": "Cursor Super high-usage tier with 15x Plus allowance and peak priority routing.",
+      "vendor_id": "cursor",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": 83.33,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 15,
+      "highlights": [
+        "15x Plus usage pool",
+        "Peak priority model routing",
+        "Annual billing option ($1,000/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_ultra",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Ultra",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 300000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Ultra 旗舰订阅（Plus 的 50 倍用量与最新模型抢先体验）",
+      "description_en": "Cursor Ultra flagship plan offering 50x Plus usage and earliest model access.",
+      "vendor_id": "cursor",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": 166.67,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 50,
+      "highlights": [
+        "50x Plus usage pool",
+        "Earliest access to new models & agents",
+        "Annual billing option ($2,000/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

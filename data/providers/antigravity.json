@@ -1,0 +1,322 @@
+{
+  "provider": {
+    "provider_id": "antigravity",
+    "vendor_id": "google",
+    "display_name": "Antigravity",
+    "vendor_name": "Google",
+    "category": "cli_and_ide_agent",
+    "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+    "official_docs_url": "https://ai.google.dev/",
+    "quota_observation_modes": ["local_log", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "google_ai_free",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Free / Antigravity 个人免费周额度窗口",
+      "description_en": "Google AI Free individual tier with weekly Antigravity allowance.",
+      "vendor_id": "google",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.15,
+      "highlights": [
+        "No monthly subscription cost",
+        "Weekly rolling preview allowance",
+        "Antigravity IDE baseline access"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_plus",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Plus",
+      "monthly_fee_micro_usd": 4990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 6000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Plus / Antigravity 基础订阅参考窗口",
+      "description_en": "Google AI Plus entry subscription bundling 400 GB storage and 2x baseline AI access.",
+      "vendor_id": "google",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 4.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.3,
+      "highlights": [
+        "Entry $4.99/mo Google AI plan",
+        "400 GB Google One cloud storage",
+        "2x standard Gemini quota"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_pro",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Pro",
+      "monthly_fee_micro_usd": 19990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Pro / Antigravity 标准开发订阅（5h 滚动 + 7d 周额度）",
+      "description_en": "Google AI Pro standard developer subscription with 5h rolling and 7d weekly Antigravity windows.",
+      "vendor_id": "google",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 19.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Standard $19.99/mo Antigravity developer plan",
+        "5h rolling + 7d weekly quota windows",
+        "5 TB Google One storage included"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_ultra_5x",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Ultra 5x",
+      "monthly_fee_micro_usd": 99990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 500000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Ultra 5x / Antigravity 进阶开发订阅（5 倍 Pro 额度）",
+      "description_en": "Google AI Ultra 5x advanced tier offering 5x Pro quota for Antigravity and Gemini.",
+      "vendor_id": "google",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 99.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "5x Google AI Pro quota headroom",
+        "Priority Antigravity frontier model routing",
+        "20 TB Google One storage"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_ultra",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Ultra 20x",
+      "monthly_fee_micro_usd": 199990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 250000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 1250000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Ultra 20x / Antigravity 旗舰订阅（20 倍 Pro 额度）",
+      "description_en": "Google AI Ultra 20x flagship tier providing highest Antigravity and frontier model quotas.",
+      "vendor_id": "google",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 199.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 20,
+      "highlights": [
+        "20x Pro headroom & priority queue",
+        "Full Antigravity multi-agent concurrency",
+        "Includes YouTube Premium & 30 TB class storage"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "gemini_enterprise",
+      "provider_id": "antigravity",
+      "plan_name": "Gemini Enterprise",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Gemini Enterprise / Code Assist 企业席位参考窗口",
+      "description_en": "Gemini Enterprise / Gemini Code Assist per-seat commercial coding subscription.",
+      "vendor_id": "google",
+      "tier": "enterprise",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 24,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2,
+      "highlights": [
+        "Commercial IP indemnification & governance",
+        "Gemini Code Assist & CLI integration",
+        "Workspace VPC-SC & IAM controls"
+      ],
+      "official_pricing_url": "https://cloud.google.com/products/gemini/pricing",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

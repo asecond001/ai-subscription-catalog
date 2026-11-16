@@ -1,0 +1,120 @@
+{
+  "provider": {
+    "provider_id": "qcode",
+    "vendor_id": "qcode",
+    "display_name": "QCode",
+    "vendor_name": "QCode",
+    "category": "coding_plan",
+    "official_pricing_url": "https://qcode.dev/pricing",
+    "official_docs_url": "https://qcode.dev/docs",
+    "quota_observation_modes": ["official_api", "local_log", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "qcode_daily_plan",
+      "provider_id": "qcode",
+      "plan_name": "QCode 标准日额度套餐",
+      "monthly_fee_micro_usd": 15000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 10000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "QCode 标准每日与月度额度参考模板",
+      "description_en": "QCode Standard daily and monthly quota coding plan with official quota API synchronization.",
+      "vendor_id": "qcode",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 15,
+        "annual_monthly_usd": null,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Fixed 24h daily reset + 30d monthly ceiling",
+        "Official quota API synchronization",
+        "Reference baseline for QCode CLI"
+      ],
+      "official_pricing_url": "https://qcode.dev/pricing",
+      "official_limits_url": "https://qcode.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "qcode_pro_plan",
+      "provider_id": "qcode",
+      "plan_name": "QCode Pro 日额度套餐",
+      "monthly_fee_micro_usd": 45000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 35000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 700000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "QCode Pro 高配额每日与月度额度参考模板",
+      "description_en": "QCode Pro high-quota daily and monthly coding subscription.",
+      "vendor_id": "qcode",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 45,
+        "annual_monthly_usd": null,
+        "monthly_cny": 299,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 3.5,
+      "highlights": [
+        "3.5x daily quota over standard QCode",
+        "700 USD/mo equivalent reference monthly cap",
+        "Official quota API synchronization"
+      ],
+      "official_pricing_url": "https://qcode.dev/pricing",
+      "official_limits_url": "https://qcode.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

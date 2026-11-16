@@ -1,0 +1,266 @@
+{
+  "provider": {
+    "provider_id": "kimi_code",
+    "vendor_id": "moonshot",
+    "display_name": "Kimi Code",
+    "vendor_name": "Moonshot AI",
+    "category": "cli_agent",
+    "official_pricing_url": "https://www.kimi.com/membership",
+    "official_docs_url": "https://www.kimi.com/code",
+    "quota_observation_modes": ["official_api", "local_log", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "kimi_code_plus",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Plus (Moderato)",
+      "monthly_fee_micro_usd": 19000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 8000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Plus / Moderato 个人订阅（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Plus (Moderato) subscription with 5h rolling, 7d weekly, and 30d monthly windows.",
+      "vendor_id": "moonshot",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 19,
+        "annual_monthly_usd": 15,
+        "monthly_cny": 49,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Kimi Code CLI access & official quota API sync",
+        "5h, 7d, and 30d multi-window rate governance",
+        "Moderato international / CNY regional plans"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_allegretto",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Pro (Allegretto)",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Pro / Allegretto 进阶编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Pro (Allegretto) advanced coding tier with doubled agent credits.",
+      "vendor_id": "moonshot",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": 31,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 3,
+      "highlights": [
+        "Expanded Kimi Code daily & weekly allotment",
+        "Official quota API synchronization",
+        "Doubled agent credits over Plus"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_max",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Max (Allegro)",
+      "monthly_fee_micro_usd": 99000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 375000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Max / Allegro 高并发编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Max (Allegro) high-concurrency plan unlocking Agent Swarm and 1M context.",
+      "vendor_id": "moonshot",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 99,
+        "annual_monthly_usd": 79,
+        "monthly_cny": 399,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "Agent Swarm parallel execution",
+        "1M-token long-context coding",
+        "Official 5h / 7d / 30d quota sync"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_ultra",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Ultra (Vivace)",
+      "monthly_fee_micro_usd": 199000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 180000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 900000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 2800000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Ultra / Vivace 旗舰编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Ultra (Vivace) flagship tier with maximum Swarm concurrency and quota limits.",
+      "vendor_id": "moonshot",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 199,
+        "annual_monthly_usd": 159,
+        "monthly_cny": 1399,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 23,
+      "highlights": [
+        "Highest Kimi Code concurrency & throughput",
+        "Full Swarm & Goal mode allowances",
+        "Official 5h / 7d / 30d quota sync"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

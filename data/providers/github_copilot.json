@@ -1,0 +1,272 @@
+{
+  "provider": {
+    "provider_id": "github_copilot",
+    "vendor_id": "github",
+    "display_name": "GitHub Copilot",
+    "vendor_name": "GitHub",
+    "category": "cli_and_ide_agent",
+    "official_pricing_url": "https://github.com/features/copilot/plans",
+    "official_docs_url": "https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot",
+    "quota_observation_modes": ["local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "copilot_free",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 2000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot 免费版（含每月基础补全、对话与轻量 Agent 试用额度）",
+      "description_en": "GitHub Copilot Free tier with monthly evaluation completions and limited agent credits.",
+      "vendor_id": "github",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.13,
+      "highlights": [
+        "Limited monthly completions & chat",
+        "Free evaluation tier for individuals",
+        "No payment card required"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_pro",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Pro",
+      "monthly_fee_micro_usd": 10000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Pro 个人订阅（含无限补全与每月 1,500 AI Credits）",
+      "description_en": "GitHub Copilot Pro individual plan with unlimited completions and 1,500 monthly AI Credits ($15 equivalent).",
+      "vendor_id": "github",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 10,
+        "annual_monthly_usd": 8.33,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "1,500 AI Credits/mo ($0.01/credit = $15 value)",
+        "Unlimited code completions & next-edit suggestions",
+        "Third-party coding agents & cloud code reviews"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_business",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Business",
+      "monthly_fee_micro_usd": 19000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Business 团队席位（组织级策略控制、IP 赔偿与共享额度池）",
+      "description_en": "GitHub Copilot Business per-seat organization tier with centralized policy controls and IP indemnity.",
+      "vendor_id": "github",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 19,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2,
+      "highlights": [
+        "Organization policy management & IP indemnity",
+        "Pooled AI Credits across billing entity",
+        "Unlimited IDE completions"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_pro_plus",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Pro+",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 70000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Pro+ 进阶个人订阅（含每月 7,000 AI Credits 与旗舰模型访问）",
+      "description_en": "GitHub Copilot Pro+ power-user tier with 7,000 monthly AI Credits ($70 equivalent) and premium models.",
+      "vendor_id": "github",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": 32.5,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 4.67,
+      "highlights": [
+        "7,000 AI Credits/mo ($70 equivalent pool)",
+        "Access to frontier Opus/reasoning models",
+        "Audit logs & unlimited completions"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_enterprise",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Enterprise",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Enterprise 企业席位（代码库索引、深度治理与高额共享额度池）",
+      "description_en": "GitHub Copilot Enterprise per-seat tier with repository indexing and enterprise agent governance.",
+      "vendor_id": "github",
+      "tier": "enterprise",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 6.67,
+      "highlights": [
+        "GitHub Enterprise Cloud integration",
+        "Codebase-aware chat & custom knowledge bases",
+        "Large pooled AI Credits allowance"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_max",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Max",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Max 旗舰个人订阅（含每月 20,000 AI Credits，适合高频 Agent 编排）",
+      "description_en": "GitHub Copilot Max top individual tier delivering 20,000 monthly AI Credits ($200 equivalent).",
+      "vendor_id": "github",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 13.33,
+      "highlights": [
+        "20,000 AI Credits/mo ($200 equivalent ceiling)",
+        "Priority access to new models & agents",
+        "Built for sustained agentic workloads"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

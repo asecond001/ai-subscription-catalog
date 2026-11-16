@@ -1,0 +1,34 @@
+{
+  "name": "ai-subscription-catalog",
+  "version": "1.0.0",
+  "description": "Open, machine-readable catalog of AI coding subscription plans, pricing tiers, and rolling quota windows.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asecond001/ai-subscription-catalog.git"
+  },
+  "homepage": "https://asecond001.github.io/ai-subscription-catalog/",
+  "scripts": {
+    "build:ts": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build:catalog": "npm run build:ts && node build/src/cli/build-catalog.js",
+    "validate": "npm run build:ts && node build/src/cli/validate-catalog.js",
+    "build:site": "npm run build:ts && node build/src/site/build-site.js",
+    "build": "npm run build:catalog && npm run validate && npm run build:site",
+    "sync:live": "npm run build:ts && node build/src/cli/sync-live.js",
+    "test": "npm run build:ts && node --test build/tests/*.test.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "typescript": "^5.7.3"
+  }
+}

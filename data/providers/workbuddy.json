@@ -1,0 +1,67 @@
+{
+  "provider": {
+    "provider_id": "workbuddy",
+    "vendor_id": "workbuddy",
+    "display_name": "Workbuddy",
+    "vendor_name": "Workbuddy",
+    "category": "ide_agent",
+    "official_pricing_url": "https://workbuddy.dev/pricing",
+    "official_docs_url": "https://workbuddy.dev/docs",
+    "quota_observation_modes": ["local_log", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "workbuddy_pro",
+      "provider_id": "workbuddy",
+      "plan_name": "Workbuddy Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Workbuddy Pro 编码助手订阅参考模板",
+      "description_en": "Workbuddy Pro AI coding assistant subscription with 5h rolling and 30d monthly windows.",
+      "vendor_id": "workbuddy",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "5h rolling + 30d monthly quota tracking",
+        "Local session log ingestion support",
+        "Reference baseline for Workbuddy IDE"
+      ],
+      "official_pricing_url": "https://workbuddy.dev/pricing",
+      "official_limits_url": "https://workbuddy.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

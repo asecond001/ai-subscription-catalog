@@ -1,0 +1,226 @@
+{
+  "provider": {
+    "provider_id": "windsurf",
+    "vendor_id": "windsurf",
+    "display_name": "Windsurf",
+    "vendor_name": "Windsurf / Cognition",
+    "category": "ide_agent",
+    "official_pricing_url": "https://windsurf.com/pricing",
+    "official_docs_url": "https://docs.windsurf.com/",
+    "quota_observation_modes": ["local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "windsurf_free",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1500000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 6000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf 免费版（无限 Tab 补全与每日/每周基础 Cascade Agent 额度）",
+      "description_en": "Windsurf Free tier with unlimited Tab autocomplete and daily/weekly Cascade agent quota.",
+      "vendor_id": "windsurf",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.1,
+      "highlights": [
+        "Unlimited Tab autocomplete",
+        "Daily & weekly evaluation Cascade quota",
+        "Zero monthly cost"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_pro",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 12000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 60000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Pro 个人主力订阅（日常日/周 Cascade 额度与全量前沿模型访问）",
+      "description_en": "Windsurf Pro individual plan with daily/weekly Cascade quotas and frontier model access.",
+      "vendor_id": "windsurf",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Daily & weekly Cascade agent quotas",
+        "Access to Claude, GPT, and SWE-1.5 models",
+        "Unlimited Tab autocomplete & previews"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_teams",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Teams",
+      "monthly_fee_micro_usd": 40000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Teams 团队席位订阅（按席位计费、集中账单与团队分析看板）",
+      "description_en": "Windsurf Teams per-seat workspace subscription with centralized billing and admin analytics.",
+      "vendor_id": "windsurf",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 40,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2.08,
+      "highlights": [
+        "Centralized team billing & admin dashboard",
+        "Team usage analytics & priority support",
+        "Expanded daily/weekly Cascade quotas"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_max",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Max",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 600000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Max 旗舰个人订阅（10 倍级日/周 Cascade Agent 配额上限）",
+      "description_en": "Windsurf Max high-ceiling individual subscription engineered for all-day heavy Cascade agent loops.",
+      "vendor_id": "windsurf",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "10x Pro daily & weekly Cascade ceiling",
+        "Built for large-codebase continuous agent loops",
+        "Unlimited Tab autocomplete"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

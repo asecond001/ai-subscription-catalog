@@ -1,0 +1,303 @@
+import * as cheerio from "cheerio";
+import type { TextFetcher } from "./http.js";
+
+type CheerioSelection = ReturnType<cheerio.CheerioAPI>;
+
+export interface ExtractedPlanPrice {
+  template_id: string;
+  monthly_usd: number;
+  confidence: "high" | "medium";
+  evidence: string;
+  annual_monthly_usd?: number | null;
+}
+
+export interface VendorCollectionResult {
+  vendor_id: string;
+  provider_id: string;
+  url: string;
+  status: "ok" | "challenged_or_blocked" | "unreachable" | "no_matches";
+  httpStatus: number | null;
+  extracted: ExtractedPlanPrice[];
+  note: string;
+}
+
+export interface PlanCardSpec {
+  template_id: string;
+  headingAliases: readonly string[];
+  allowFree?: boolean;
+}
+
+function normalizeWhitespace(text: string): string {
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function findPlanContainer(
+  $: cheerio.CheerioAPI,
+  aliases: readonly string[],
+  allKnownHeadings: readonly string[]
+): CheerioSelection | null {
+  const normalizedAliases = aliases.map((a) => a.toLowerCase());
+  const normalizedOthers = allKnownHeadings
+    .map((h) => h.toLowerCase())
+    .filter((h) => !normalizedAliases.includes(h));
+
+  const headingSelectors = [
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "[data-plan]",
+    "[data-tier]",
+    ".plan-title",
+    ".tier-name",
+    "strong",
+  ].join(", ");
+
+  const candidates = $(headingSelectors).toArray();
+
+  for (const el of candidates) {
+    const node = $(el);
+    const dataPlan = (node.attr("data-plan") ?? node.attr("data-tier") ?? "")
+      .trim()
+      .toLowerCase();
+    const ownText = normalizeWhitespace(node.text()).toLowerCase();
+
+    const matched = normalizedAliases.some(
+      (alias) => ownText === alias || dataPlan === alias
+    );
+    if (!matched) {
+      continue;
+    }
+
+    let current: CheerioSelection = node;
+    for (let depth = 0; depth <= 4; depth += 1) {
+      const containerText = normalizeWhitespace(current.text());
+      const lowerContainer = containerText.toLowerCase();
+
+      const containsOtherPlanHeading =
+        depth > 0 &&
+        normalizedOthers.some((other) => {
+          return current
+            .find(
+              "h1, h2, h3, h4, h5, [data-plan], [data-tier], .plan-title, .tier-name"
+            )
+            .toArray()
+            .some((h) => normalizeWhitespace($(h).text()).toLowerCase() === other);
+        });
+
+      if (containsOtherPlanHeading) {
+        break;
+      }
+
+      if (
+        (containerText.includes("$") || /\bfree\b/i.test(lowerContainer)) &&
+        containerText.length <= 1600
+      ) {
+        return current;
+      }
+
+      const parent = current.parent();
+      if (!parent || parent.length === 0) {
+        break;
+      }
+      current = parent;
+    }
+  }
+
+  return null;
+}
+
+interface ParsedPriceCandidate {
+  amount: number;
+  isAnnualTotal: boolean;
+  isAnnualDiscountedMonthly: boolean;
+  hasExplicitMonthlyContext: boolean;
+  snippet: string;
+}
+
+function scanPriceText(source: string): ParsedPriceCandidate[] {
+  const found: ParsedPriceCandidate[] = [];
+  const priceRegex = /\$\s*(\d{1,4}(?:,\d{3})*(?:\.\d{1,2})?)/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = priceRegex.exec(source)) !== null) {
+    const rawNum = match[1];
+    if (!rawNum) {
+      continue;
+    }
+    const amount = Number.parseFloat(rawNum.replace(/,/g, ""));
+    if (!Number.isFinite(amount) || amount > 2000) {
+      continue;
+    }
+
+    const start = Math.max(0, match.index - 24);
+    const end = Math.min(source.length, match.index + match[0].length + 48);
+    const windowText = source.slice(start, end).toLowerCase();
+
+    const isAnnualTotal =
+      /\/\s*(?:yr|year)\b|\bper\s+year\b|\byearly\s+total\b/i.test(windowText);
+    const isAnnualDiscountedMonthly =
+      /\bbilled\s+annually\b|\bwhen\s+billed\s+yearly\b|\bannual\s+plan\b/i.test(
+        windowText
+      );
+    const hasExplicitMonthlyContext =
+      /\/\s*(?:mo|month)\b|\bper\s+(?:user|seat|member)?\s*\/?\s*month\b|\bmonthly\b|\bbilled\s+monthly\b/i.test(
+        windowText
+      );
+
+    found.push({
+      amount,
+      isAnnualTotal,
+      isAnnualDiscountedMonthly,
+      hasExplicitMonthlyContext,
+      snippet: source.slice(start, end).trim(),
+    });
+  }
+
+  return found;
+}
+
+function parsePriceCandidatesFromCard(
+  $: cheerio.CheerioAPI,
+  card: CheerioSelection
+): ParsedPriceCandidate[] {
+  const priceElements = card
+    .find("[data-price], .price, .pricing, .amount, span, p, div, strong")
+    .toArray();
+
+  const seenSnippets = new Set<string>();
+  const candidates: ParsedPriceCandidate[] = [];
+
+  for (const el of priceElements) {
+    const text = normalizeWhitespace($(el).text());
+    if (text.includes("$") && text.length <= 160 && !seenSnippets.has(text)) {
+      seenSnippets.add(text);
+      candidates.push(...scanPriceText(text));
+    }
+  }
+
+  if (candidates.every((c) => !c.hasExplicitMonthlyContext)) {
+    const fullCardText = normalizeWhitespace(card.text());
+    if (fullCardText.includes("$") && fullCardText.length <= 1600) {
+      candidates.push(...scanPriceText(fullCardText));
+    }
+  }
+
+  return candidates;
+}
+
+export function extractPlansFromHtmlCards(
+  html: string,
+  specs: readonly PlanCardSpec[]
+): ExtractedPlanPrice[] {
+  const $ = cheerio.load(html);
+  const allKnownHeadings = specs.flatMap((spec) => spec.headingAliases);
+  const results: ExtractedPlanPrice[] = [];
+
+  for (const spec of specs) {
+    const card = findPlanContainer($, spec.headingAliases, allKnownHeadings);
+    if (!card) {
+      continue;
+    }
+
+    const candidates = parsePriceCandidatesFromCard($, card);
+    const nonAnnualTotals = candidates.filter((c) => !c.isAnnualTotal);
+
+    const standardMonthly = nonAnnualTotals.find(
+      (c) => c.hasExplicitMonthlyContext && !c.isAnnualDiscountedMonthly
+    );
+    const annualPerMonth = nonAnnualTotals.find(
+      (c) => c.isAnnualDiscountedMonthly
+    );
+
+    if (standardMonthly) {
+      results.push({
+        template_id: spec.template_id,
+        monthly_usd: standardMonthly.amount,
+        confidence: "high",
+        evidence: standardMonthly.snippet,
+        ...(annualPerMonth
+          ? { annual_monthly_usd: annualPerMonth.amount }
+          : {}),
+      });
+      continue;
+    }
+
+    const zeroCandidate = nonAnnualTotals.find((c) => c.amount === 0);
+    if (spec.allowFree && (zeroCandidate || /\bfree\b/i.test(card.text()))) {
+      results.push({
+        template_id: spec.template_id,
+        monthly_usd: 0,
+        confidence: "high",
+        evidence: zeroCandidate?.snippet ?? "Free tier heading matched",
+      });
+      continue;
+    }
+
+    const fallbackMonthly = nonAnnualTotals.find(
+      (c) => !c.isAnnualDiscountedMonthly
+    );
+    if (fallbackMonthly) {
+      results.push({
+        template_id: spec.template_id,
+        monthly_usd: fallbackMonthly.amount,
+        confidence: "medium",
+        evidence: fallbackMonthly.snippet,
+        ...(annualPerMonth
+          ? { annual_monthly_usd: annualPerMonth.amount }
+          : {}),
+      });
+    }
+  }
+
+  return results;
+}
+
+export async function runVendorHtmlCollector(params: {
+  vendor_id: string;
+  provider_id: string;
+  url: string;
+  fetcher: TextFetcher;
+  parseHtml: (html: string) => ExtractedPlanPrice[];
+}): Promise<VendorCollectionResult> {
+  const outcome = await params.fetcher(params.url);
+
+  if (!outcome.ok || outcome.body === null) {
+    return {
+      vendor_id: params.vendor_id,
+      provider_id: params.provider_id,
+      url: params.url,
+      status:
+        outcome.status === "challenged_or_blocked"
+          ? "challenged_or_blocked"
+          : "unreachable",
+      httpStatus: outcome.httpStatus,
+      extracted: [],
+      note: outcome.reason ?? "Fetch failed",
+    };
+  }
+
+  const extracted = params.parseHtml(outcome.body);
+  if (extracted.length === 0) {
+    return {
+      vendor_id: params.vendor_id,
+      provider_id: params.provider_id,
+      url: params.url,
+      status: "no_matches",
+      httpStatus: outcome.httpStatus,
+      extracted: [],
+      note: "Page fetched successfully, no structured plan pricing selectors matched",
+    };
+  }
+
+  return {
+    vendor_id: params.vendor_id,
+    provider_id: params.provider_id,
+    url: params.url,
+    status: "ok",
+    httpStatus: outcome.httpStatus,
+    extracted,
+    note: `Extracted ${extracted.length} plan price(s)`,
+  };
+}

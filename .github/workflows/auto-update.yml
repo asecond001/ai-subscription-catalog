@@ -1,0 +1,113 @@
+name: Daily Catalog Auto-Update
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run live fetch and validation without committing or opening a PR'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: catalog-auto-update
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      classification: ${{ steps.live_sync.outputs.classification }}
+      changed: ${{ steps.live_sync.outputs.changed }}
+      dry_run: ${{ inputs.dry_run == true }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run live vendor sync & dual-gate checks
+        id: live_sync
+        env:
+          DRY_RUN_FLAG: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: pnpm run sync:live -- $DRY_RUN_FLAG
+
+      - name: Upload sync report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report
+          path: |
+            artifacts/sync-report.json
+            artifacts/sync-summary.md
+          if-no-files-found: ignore
+
+      - name: Verify tests & build static site after auto-merge candidate
+        if: steps.live_sync.outputs.classification == 'safe_minor_update' && inputs.dry_run != true
+        run: |
+          pnpm run typecheck
+          pnpm test
+          pnpm run validate
+          pnpm run build:site
+
+      - name: Commit & push minor catalog update to main
+        if: steps.live_sync.outputs.classification == 'safe_minor_update' && inputs.dry_run != true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/providers catalog
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(catalog): automated daily minor pricing update"
+            git push origin HEAD:main
+          fi
+
+      - name: Upload updated Pages artifact
+        if: steps.live_sync.outputs.classification == 'safe_minor_update' && inputs.dry_run != true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Open review PR for significant catalog changes
+        if: steps.live_sync.outputs.classification == 'requires_review' && inputs.dry_run != true
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore(catalog): review significant subscription plan changes"
+          branch: automation/catalog-review
+          delete-branch: true
+          title: "chore(catalog): review subscription catalog update"
+          body-path: artifacts/sync-summary.md
+          labels: |
+            automated
+            needs-review
+
+  deploy-pages:
+    needs: sync
+    if: needs.sync.outputs.classification == 'safe_minor_update' && needs.sync.outputs.dry_run != 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy updated catalog to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asecond001.github.io/ai-subscription-catalog/schemas/subscription-plans.schema.json",
+  "title": "AI Subscription Catalog",
+  "description": "Schema for machine-readable AI coding subscription plans, pricing tiers, and rolling/periodic quota windows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "catalog_id",
+    "generated_at",
+    "content_hash",
+    "stats",
+    "providers",
+    "plans"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "catalog_id": {
+      "type": "string",
+      "const": "ai-subscription-catalog"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_count",
+        "plan_count",
+        "active_plan_count",
+        "tokentracker_template_count"
+      ],
+      "properties": {
+        "provider_count": { "type": "integer", "minimum": 1 },
+        "plan_count": { "type": "integer", "minimum": 1 },
+        "active_plan_count": { "type": "integer", "minimum": 1 },
+        "tokentracker_template_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/provider" }
+    },
+    "plans": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/plan" }
+    }
+  },
+  "$defs": {
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_id",
+        "vendor_id",
+        "display_name",
+        "vendor_name",
+        "category",
+        "official_pricing_url",
+        "official_docs_url",
+        "quota_observation_modes"
+      ],
+      "properties": {
+        "provider_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "vendor_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]*$"
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vendor_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": ["cli_agent", "ide_agent", "cli_and_ide_agent", "coding_plan"]
+        },
+        "official_pricing_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "official_docs_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "quota_observation_modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["official_api", "local_log", "otlp", "local_estimation"]
+          }
+        }
+      }
+    },
+    "windowRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "window_id",
+        "label",
+        "duration_hours",
+        "rolling",
+        "unit",
+        "limit_value",
+        "warning_percent",
+        "critical_percent"
+      ],
+      "properties": {
+        "window_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duration_hours": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8760
+        },
+        "rolling": {
+          "type": "boolean"
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["micro_usd", "tokens"]
+        },
+        "limit_value": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "warning_percent": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 99
+        },
+        "critical_percent": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 100
+        }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "template_id",
+        "provider_id",
+        "plan_name",
+        "monthly_fee_micro_usd",
+        "windows",
+        "description",
+        "description_en",
+        "vendor_id",
+        "tier",
+        "status",
+        "compatibility_tags",
+        "billing",
+        "multiplier_vs_base",
+        "highlights",
+        "official_pricing_url",
+        "official_limits_url",
+        "verification"
+      ],
+      "properties": {
+        "template_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "provider_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "plan_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "monthly_fee_micro_usd": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000000000
+        },
+        "windows": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/windowRule" }
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vendor_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]*$"
+        },
+        "tier": {
+          "type": "string",
+          "enum": ["free", "entry", "plus", "pro", "team", "max", "ultra", "enterprise"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "legacy"]
+        },
+        "compatibility_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "billing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "monthly_usd",
+            "annual_monthly_usd",
+            "monthly_cny",
+            "per_seat"
+          ],
+          "properties": {
+            "monthly_usd": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "annual_monthly_usd": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "monthly_cny": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 20000
+            },
+            "per_seat": {
+              "type": "boolean"
+            }
+          }
+        },
+        "multiplier_vs_base": {
+          "type": ["number", "null"],
+          "minimum": 0
+        },
+        "highlights": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "official_pricing_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "official_limits_url": {
+          "type": ["string", "null"],
+          "format": "uri"
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "price_source",
+            "quota_source",
+            "last_verified_at"
+          ],
+          "properties": {
+            "price_source": {
+              "type": "string",
+              "enum": ["official_page", "curated_baseline"]
+            },
+            "quota_source": {
+              "type": "string",
+              "enum": ["official_doc", "official_credits", "reference_estimate"]
+            },
+            "last_verified_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    }
+  }
+}

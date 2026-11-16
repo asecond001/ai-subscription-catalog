@@ -1,0 +1,266 @@
+{
+  "provider": {
+    "provider_id": "claude_code",
+    "vendor_id": "anthropic",
+    "display_name": "Claude Code",
+    "vendor_name": "Anthropic",
+    "category": "cli_agent",
+    "official_pricing_url": "https://claude.com/pricing",
+    "official_docs_url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+    "quota_observation_modes": ["local_log", "otlp", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "claude_pro",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Pro 个人订阅（含 5h 滚动、7d 周与 30d 月参考窗口）",
+      "description_en": "Anthropic Claude Pro individual subscription with 5h rolling, 7d weekly, and 30d reference windows.",
+      "vendor_id": "anthropic",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": 17,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Claude Code CLI access",
+        "5h rolling + 7d weekly usage limits",
+        "Annual billing available (~$17/mo)"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/8324991-about-claude-pro-usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_team",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Team",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 350000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Team 团队席位订阅参考窗口",
+      "description_en": "Anthropic Claude Team seat subscription with workspace collaboration and expanded limits.",
+      "vendor_id": "anthropic",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 25,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 1.67,
+      "highlights": [
+        "Per-seat collaborative workspace",
+        "Centralized billing & admin console",
+        "Expanded 5h and 7d quota over Pro"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/9266767-what-is-the-team-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_max_5x",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Max 5x",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 375000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1000000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Max 5x 高配额订阅（5 倍 Pro 额度）",
+      "description_en": "Anthropic Claude Max 5x plan delivering 5x Claude Pro usage limits for sustained Claude Code sessions.",
+      "vendor_id": "anthropic",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "5x Claude Pro limits every 5h & 7d",
+        "Priority model access during peak load",
+        "Designed for daily Claude Code workflows"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/11049741-what-is-the-max-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_max_20x",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Max 20x",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 3600000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Max 20x 重度编码订阅（20 倍 Pro 额度）",
+      "description_en": "Anthropic Claude Max 20x / Ultra heavy coding plan providing 20x Pro headroom.",
+      "vendor_id": "anthropic",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 20,
+      "highlights": [
+        "Up to 20x Pro capacity",
+        "All-day multi-agent Claude Code headroom",
+        "Highest priority queue & early features"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/11049741-what-is-the-max-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

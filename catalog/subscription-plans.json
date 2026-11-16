@@ -1,0 +1,2378 @@
+{
+  "$schema": "https://asecond001.github.io/ai-subscription-catalog/schemas/subscription-plans.schema.json",
+  "schema_version": "1.0.0",
+  "catalog_id": "ai-subscription-catalog",
+  "generated_at": "2026-11-16T12:18:23.577Z",
+  "content_hash": "3111a5e99a949422dc4edc6f513740e48fd23eab815913009cdaf30279c047b5",
+  "stats": {
+    "provider_count": 10,
+    "plan_count": 41,
+    "active_plan_count": 40,
+    "tokentracker_template_count": 40
+  },
+  "providers": [
+    {
+      "provider_id": "claude_code",
+      "vendor_id": "anthropic",
+      "display_name": "Claude Code",
+      "vendor_name": "Anthropic",
+      "category": "cli_agent",
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_docs_url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "quota_observation_modes": [
+        "local_log",
+        "otlp",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "codex",
+      "vendor_id": "openai",
+      "display_name": "Codex",
+      "vendor_name": "OpenAI",
+      "category": "cli_and_ide_agent",
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_docs_url": "https://developers.openai.com/codex",
+      "quota_observation_modes": [
+        "local_log",
+        "otlp",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "antigravity",
+      "vendor_id": "google",
+      "display_name": "Antigravity",
+      "vendor_name": "Google",
+      "category": "cli_and_ide_agent",
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_docs_url": "https://ai.google.dev/",
+      "quota_observation_modes": [
+        "local_log",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "kimi_code",
+      "vendor_id": "moonshot",
+      "display_name": "Kimi Code",
+      "vendor_name": "Moonshot AI",
+      "category": "cli_agent",
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_docs_url": "https://www.kimi.com/code",
+      "quota_observation_modes": [
+        "official_api",
+        "local_log",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "minimax_code",
+      "vendor_id": "minimax",
+      "display_name": "MiniMax Code",
+      "vendor_name": "MiniMax",
+      "category": "coding_plan",
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_docs_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "quota_observation_modes": [
+        "official_api",
+        "local_log",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "qcode",
+      "vendor_id": "qcode",
+      "display_name": "QCode",
+      "vendor_name": "QCode",
+      "category": "coding_plan",
+      "official_pricing_url": "https://qcode.dev/pricing",
+      "official_docs_url": "https://qcode.dev/docs",
+      "quota_observation_modes": [
+        "official_api",
+        "local_log",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "workbuddy",
+      "vendor_id": "workbuddy",
+      "display_name": "Workbuddy",
+      "vendor_name": "Workbuddy",
+      "category": "ide_agent",
+      "official_pricing_url": "https://workbuddy.dev/pricing",
+      "official_docs_url": "https://workbuddy.dev/docs",
+      "quota_observation_modes": [
+        "local_log",
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "cursor",
+      "vendor_id": "cursor",
+      "display_name": "Cursor",
+      "vendor_name": "Anysphere / Cursor",
+      "category": "ide_agent",
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_docs_url": "https://docs.cursor.com/",
+      "quota_observation_modes": [
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "github_copilot",
+      "vendor_id": "github",
+      "display_name": "GitHub Copilot",
+      "vendor_name": "GitHub",
+      "category": "cli_and_ide_agent",
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_docs_url": "https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot",
+      "quota_observation_modes": [
+        "local_estimation"
+      ]
+    },
+    {
+      "provider_id": "windsurf",
+      "vendor_id": "windsurf",
+      "display_name": "Windsurf",
+      "vendor_name": "Windsurf / Cognition",
+      "category": "ide_agent",
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_docs_url": "https://docs.windsurf.com/",
+      "quota_observation_modes": [
+        "local_estimation"
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "template_id": "claude_pro",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Pro 个人订阅（含 5h 滚动、7d 周与 30d 月参考窗口）",
+      "description_en": "Anthropic Claude Pro individual subscription with 5h rolling, 7d weekly, and 30d reference windows.",
+      "vendor_id": "anthropic",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": 17,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Claude Code CLI access",
+        "5h rolling + 7d weekly usage limits",
+        "Annual billing available (~$17/mo)"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/8324991-about-claude-pro-usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_team",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Team",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 350000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Team 团队席位订阅参考窗口",
+      "description_en": "Anthropic Claude Team seat subscription with workspace collaboration and expanded limits.",
+      "vendor_id": "anthropic",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 25,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 1.67,
+      "highlights": [
+        "Per-seat collaborative workspace",
+        "Centralized billing & admin console",
+        "Expanded 5h and 7d quota over Pro"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/9266767-what-is-the-team-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_max_5x",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Max 5x",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 375000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1000000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Max 5x 高配额订阅（5 倍 Pro 额度）",
+      "description_en": "Anthropic Claude Max 5x plan delivering 5x Claude Pro usage limits for sustained Claude Code sessions.",
+      "vendor_id": "anthropic",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "5x Claude Pro limits every 5h & 7d",
+        "Priority model access during peak load",
+        "Designed for daily Claude Code workflows"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/11049741-what-is-the-max-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "claude_max_20x",
+      "provider_id": "claude_code",
+      "plan_name": "Claude Max 20x",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 3600000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Anthropic Claude Max 20x 重度编码订阅（20 倍 Pro 额度）",
+      "description_en": "Anthropic Claude Max 20x / Ultra heavy coding plan providing 20x Pro headroom.",
+      "vendor_id": "anthropic",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 20,
+      "highlights": [
+        "Up to 20x Pro capacity",
+        "All-day multi-agent Claude Code headroom",
+        "Highest priority queue & early features"
+      ],
+      "official_pricing_url": "https://claude.com/pricing",
+      "official_limits_url": "https://support.anthropic.com/en/articles/11049741-what-is-the-max-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_plus",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Plus / Codex",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 18000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 90000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Plus（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Plus subscription including Codex CLI & IDE usage synced via official 5h/7d rate-limit logs.",
+      "vendor_id": "openai",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Codex CLI, IDE extension & web agent",
+        "Official 5h & 7d rate_limits emitted in local logs",
+        "Shared usage pool with ChatGPT Plus"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_team",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Team / Codex",
+      "monthly_fee_micro_usd": 25000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Team 团队席位（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Business/Team per-seat workspace plan with expanded Codex quotas.",
+      "vendor_id": "openai",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 25,
+        "annual_monthly_usd": 20,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 1.67,
+      "highlights": [
+        "Team data exclusion from training by default",
+        "Flexible workspace credits & admin controls",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro_100",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro 100 / Codex",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 80000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 480000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 100 高频编码订阅（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Pro 100 tier built for daily heavy Codex engineering workloads.",
+      "vendor_id": "openai",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "Pro 100 tier for daily agentic coding",
+        "High-reasoning effort model allocations",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro / Codex",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 900000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 旗舰开发订阅（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Pro 200 flagship individual subscription with deep Codex headroom.",
+      "vendor_id": "openai",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "10x Plus-class headroom for Codex",
+        "Priority Pro reasoning allocations",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro_500",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro 500 / Codex Ultrafast",
+      "monthly_fee_micro_usd": 500000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 2400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 500 极速旗舰订阅（支持 Ultrafast 高速推理模式）",
+      "description_en": "OpenAI ChatGPT Pro 500 top-tier individual plan featuring Ultrafast mode for Codex.",
+      "vendor_id": "openai",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 500,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 25,
+      "highlights": [
+        "Maximum individual Codex quota ceiling",
+        "Ultrafast low-latency generation mode",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_free",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Free / Antigravity 个人免费周额度窗口",
+      "description_en": "Google AI Free individual tier with weekly Antigravity allowance.",
+      "vendor_id": "google",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.15,
+      "highlights": [
+        "No monthly subscription cost",
+        "Weekly rolling preview allowance",
+        "Antigravity IDE baseline access"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_plus",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Plus",
+      "monthly_fee_micro_usd": 4990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 6000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Plus / Antigravity 基础订阅参考窗口",
+      "description_en": "Google AI Plus entry subscription bundling 400 GB storage and 2x baseline AI access.",
+      "vendor_id": "google",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 4.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.3,
+      "highlights": [
+        "Entry $4.99/mo Google AI plan",
+        "400 GB Google One cloud storage",
+        "2x standard Gemini quota"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_pro",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Pro",
+      "monthly_fee_micro_usd": 19990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Pro / Antigravity 标准开发订阅（5h 滚动 + 7d 周额度）",
+      "description_en": "Google AI Pro standard developer subscription with 5h rolling and 7d weekly Antigravity windows.",
+      "vendor_id": "google",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 19.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Standard $19.99/mo Antigravity developer plan",
+        "5h rolling + 7d weekly quota windows",
+        "5 TB Google One storage included"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_ultra_5x",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Ultra 5x",
+      "monthly_fee_micro_usd": 99990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 500000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Ultra 5x / Antigravity 进阶开发订阅（5 倍 Pro 额度）",
+      "description_en": "Google AI Ultra 5x advanced tier offering 5x Pro quota for Antigravity and Gemini.",
+      "vendor_id": "google",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 99.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "5x Google AI Pro quota headroom",
+        "Priority Antigravity frontier model routing",
+        "20 TB Google One storage"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "google_ai_ultra",
+      "provider_id": "antigravity",
+      "plan_name": "Google AI Ultra 20x",
+      "monthly_fee_micro_usd": 199990000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 250000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 1250000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Google AI Ultra 20x / Antigravity 旗舰订阅（20 倍 Pro 额度）",
+      "description_en": "Google AI Ultra 20x flagship tier providing highest Antigravity and frontier model quotas.",
+      "vendor_id": "google",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 199.99,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 20,
+      "highlights": [
+        "20x Pro headroom & priority queue",
+        "Full Antigravity multi-agent concurrency",
+        "Includes YouTube Premium & 30 TB class storage"
+      ],
+      "official_pricing_url": "https://one.google.com/about/google-ai-plans/",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "gemini_enterprise",
+      "provider_id": "antigravity",
+      "plan_name": "Gemini Enterprise",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Gemini Enterprise / Code Assist 企业席位参考窗口",
+      "description_en": "Gemini Enterprise / Gemini Code Assist per-seat commercial coding subscription.",
+      "vendor_id": "google",
+      "tier": "enterprise",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 24,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2,
+      "highlights": [
+        "Commercial IP indemnification & governance",
+        "Gemini Code Assist & CLI integration",
+        "Workspace VPC-SC & IAM controls"
+      ],
+      "official_pricing_url": "https://cloud.google.com/products/gemini/pricing",
+      "official_limits_url": null,
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_plus",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Plus (Moderato)",
+      "monthly_fee_micro_usd": 19000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 8000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Plus / Moderato 个人订阅（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Plus (Moderato) subscription with 5h rolling, 7d weekly, and 30d monthly windows.",
+      "vendor_id": "moonshot",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 19,
+        "annual_monthly_usd": 15,
+        "monthly_cny": 49,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Kimi Code CLI access & official quota API sync",
+        "5h, 7d, and 30d multi-window rate governance",
+        "Moderato international / CNY regional plans"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_allegretto",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Pro (Allegretto)",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Pro / Allegretto 进阶编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Pro (Allegretto) advanced coding tier with doubled agent credits.",
+      "vendor_id": "moonshot",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": 31,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 3,
+      "highlights": [
+        "Expanded Kimi Code daily & weekly allotment",
+        "Official quota API synchronization",
+        "Doubled agent credits over Plus"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_max",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Max (Allegro)",
+      "monthly_fee_micro_usd": 99000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 75000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 375000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Max / Allegro 高并发编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Max (Allegro) high-concurrency plan unlocking Agent Swarm and 1M context.",
+      "vendor_id": "moonshot",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 99,
+        "annual_monthly_usd": 79,
+        "monthly_cny": 399,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "Agent Swarm parallel execution",
+        "1M-token long-context coding",
+        "Official 5h / 7d / 30d quota sync"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "kimi_code_ultra",
+      "provider_id": "kimi_code",
+      "plan_name": "Kimi Ultra (Vivace)",
+      "monthly_fee_micro_usd": 199000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 180000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 900000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 2800000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Kimi Ultra / Vivace 旗舰编码会员（含 5h 滚动、7d 周与 30d 月度限额）",
+      "description_en": "Moonshot AI Kimi Ultra (Vivace) flagship tier with maximum Swarm concurrency and quota limits.",
+      "vendor_id": "moonshot",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 199,
+        "annual_monthly_usd": 159,
+        "monthly_cny": 1399,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 23,
+      "highlights": [
+        "Highest Kimi Code concurrency & throughput",
+        "Full Swarm & Goal mode allowances",
+        "Official 5h / 7d / 30d quota sync"
+      ],
+      "official_pricing_url": "https://www.kimi.com/membership",
+      "official_limits_url": "https://www.kimi.com/code",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "minimax_coding_plus",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Plus",
+      "monthly_fee_micro_usd": 7000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 8000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Coding Plus 基础编码套餐参考窗口",
+      "description_en": "MiniMax Coding Plus entry coding subscription compatible with Claude Code and OpenCode.",
+      "vendor_id": "minimax",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 7,
+        "annual_monthly_usd": null,
+        "monthly_cny": 49,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Official Coding Plan remains API endpoint",
+        "Compatible with Claude Code, Cursor & OpenCode",
+        "5h rolling + 7d + 30d reference windows"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "minimax_coding_plan",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Pro",
+      "monthly_fee_micro_usd": 15000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 18000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 90000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 280000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Coding Pro 编码订阅参考窗口（支持官方 Coding Plan 额度接口自动同步）",
+      "description_en": "MiniMax Coding Pro subscription with official Coding Plan quota API auto-sync.",
+      "vendor_id": "minimax",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 15,
+        "annual_monthly_usd": null,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 2.33,
+      "highlights": [
+        "Official Coding Plan quota API sync",
+        "Expanded 5h & 7d multi-turn coding quota",
+        "Drop-in Anthropic/OpenAI compatible endpoint"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "minimax_token_plan",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Max (Token Plan)",
+      "monthly_fee_micro_usd": 49000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h Token 窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "tokens",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "tokens",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Token Plan 按 Token 计量订阅参考模板",
+      "description_en": "MiniMax Coding Max / Token Plan measured directly in tokens across 5h and 30d windows.",
+      "vendor_id": "minimax",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 49,
+        "annual_monthly_usd": null,
+        "monthly_cny": 299,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 7,
+      "highlights": [
+        "Token-denominated 5h (20M) & 30d (120M) caps",
+        "Official Coding Plan API integration",
+        "Built for long-context agentic coding"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "qcode_daily_plan",
+      "provider_id": "qcode",
+      "plan_name": "QCode 标准日额度套餐",
+      "monthly_fee_micro_usd": 15000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 10000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "QCode 标准每日与月度额度参考模板",
+      "description_en": "QCode Standard daily and monthly quota coding plan with official quota API synchronization.",
+      "vendor_id": "qcode",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 15,
+        "annual_monthly_usd": null,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Fixed 24h daily reset + 30d monthly ceiling",
+        "Official quota API synchronization",
+        "Reference baseline for QCode CLI"
+      ],
+      "official_pricing_url": "https://qcode.dev/pricing",
+      "official_limits_url": "https://qcode.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "qcode_pro_plan",
+      "provider_id": "qcode",
+      "plan_name": "QCode Pro 日额度套餐",
+      "monthly_fee_micro_usd": 45000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 35000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 700000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "QCode Pro 高配额每日与月度额度参考模板",
+      "description_en": "QCode Pro high-quota daily and monthly coding subscription.",
+      "vendor_id": "qcode",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 45,
+        "annual_monthly_usd": null,
+        "monthly_cny": 299,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 3.5,
+      "highlights": [
+        "3.5x daily quota over standard QCode",
+        "700 USD/mo equivalent reference monthly cap",
+        "Official quota API synchronization"
+      ],
+      "official_pricing_url": "https://qcode.dev/pricing",
+      "official_limits_url": "https://qcode.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "workbuddy_pro",
+      "provider_id": "workbuddy",
+      "plan_name": "Workbuddy Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Workbuddy Pro 编码助手订阅参考模板",
+      "description_en": "Workbuddy Pro AI coding assistant subscription with 5h rolling and 30d monthly windows.",
+      "vendor_id": "workbuddy",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [
+        "tokentracker-v0.2.4"
+      ],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "5h rolling + 30d monthly quota tracking",
+        "Local session log ingestion support",
+        "Reference baseline for Workbuddy IDE"
+      ],
+      "official_pricing_url": "https://workbuddy.dev/pricing",
+      "official_limits_url": "https://workbuddy.dev/docs",
+      "verification": {
+        "price_source": "curated_baseline",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_free",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 5000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor 免费体验档（有限的 Tab 补全与 Agent 试用额度）",
+      "description_en": "Cursor Free tier with limited chat and agent evaluation requests.",
+      "vendor_id": "cursor",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.25,
+      "highlights": [
+        "Limited agent & chat requests",
+        "Trial Tab autocomplete allowance",
+        "Zero monthly cost"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_plus",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Plus",
+      "monthly_fee_micro_usd": 8000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 10000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Plus 入门订阅（每周基础 Cursor / Grok 原生模型额度池）",
+      "description_en": "Cursor Plus introductory plan featuring a weekly native usage pool.",
+      "vendor_id": "cursor",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 8,
+        "annual_monthly_usd": 6.67,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Base weekly usage pool for native models",
+        "Annual billing option ($80/yr)",
+        "Entry tier of current Cursor lineup"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_pro_legacy",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Pro (Legacy)",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Pro 历史存量档位（含每月 20 USD 等效模型用量池）",
+      "description_en": "Cursor legacy Pro tier retained by existing subscribers with a 20 USD monthly included usage pool.",
+      "vendor_id": "cursor",
+      "tier": "pro",
+      "status": "legacy",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": 16,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 2.5,
+      "highlights": [
+        "Legacy $20/mo plan for existing subscribers",
+        "$20 included frontier model pool per month",
+        "Unlimited Tab completions"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_premium",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Premium",
+      "monthly_fee_micro_usd": 30000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 35000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Premium 主力订阅（Plus 的 4 倍用量，支持 Cloud Agents 与 Bugbot）",
+      "description_en": "Cursor Premium individual/team tier with 4x Plus usage, Cloud Agents, Bugbot, and third-party model routing.",
+      "vendor_id": "cursor",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 30,
+        "annual_monthly_usd": 25,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 4,
+      "highlights": [
+        "4x Plus usage pool",
+        "Cloud Agents, Automations & Bugbot included",
+        "Annual billing option ($300/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_super",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Super",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 450000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Super 高配额订阅（Plus 的 15 倍用量与高峰期优先路由）",
+      "description_en": "Cursor Super high-usage tier with 15x Plus allowance and peak priority routing.",
+      "vendor_id": "cursor",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": 83.33,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 15,
+      "highlights": [
+        "15x Plus usage pool",
+        "Peak priority model routing",
+        "Annual billing option ($1,000/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "cursor_ultra",
+      "provider_id": "cursor",
+      "plan_name": "Cursor Ultra",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 300000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Cursor Ultra 旗舰订阅（Plus 的 50 倍用量与最新模型抢先体验）",
+      "description_en": "Cursor Ultra flagship plan offering 50x Plus usage and earliest model access.",
+      "vendor_id": "cursor",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": 166.67,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 50,
+      "highlights": [
+        "50x Plus usage pool",
+        "Earliest access to new models & agents",
+        "Annual billing option ($2,000/yr)"
+      ],
+      "official_pricing_url": "https://cursor.com/pricing",
+      "official_limits_url": "https://docs.cursor.com/account/pricing",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_free",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 2000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot 免费版（含每月基础补全、对话与轻量 Agent 试用额度）",
+      "description_en": "GitHub Copilot Free tier with monthly evaluation completions and limited agent credits.",
+      "vendor_id": "github",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.13,
+      "highlights": [
+        "Limited monthly completions & chat",
+        "Free evaluation tier for individuals",
+        "No payment card required"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_pro",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Pro",
+      "monthly_fee_micro_usd": 10000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 15000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Pro 个人订阅（含无限补全与每月 1,500 AI Credits）",
+      "description_en": "GitHub Copilot Pro individual plan with unlimited completions and 1,500 monthly AI Credits ($15 equivalent).",
+      "vendor_id": "github",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 10,
+        "annual_monthly_usd": 8.33,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "1,500 AI Credits/mo ($0.01/credit = $15 value)",
+        "Unlimited code completions & next-edit suggestions",
+        "Third-party coding agents & cloud code reviews"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_business",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Business",
+      "monthly_fee_micro_usd": 19000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Business 团队席位（组织级策略控制、IP 赔偿与共享额度池）",
+      "description_en": "GitHub Copilot Business per-seat organization tier with centralized policy controls and IP indemnity.",
+      "vendor_id": "github",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 19,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2,
+      "highlights": [
+        "Organization policy management & IP indemnity",
+        "Pooled AI Credits across billing entity",
+        "Unlimited IDE completions"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_pro_plus",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Pro+",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 70000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Pro+ 进阶个人订阅（含每月 7,000 AI Credits 与旗舰模型访问）",
+      "description_en": "GitHub Copilot Pro+ power-user tier with 7,000 monthly AI Credits ($70 equivalent) and premium models.",
+      "vendor_id": "github",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": 32.5,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 4.67,
+      "highlights": [
+        "7,000 AI Credits/mo ($70 equivalent pool)",
+        "Access to frontier Opus/reasoning models",
+        "Audit logs & unlimited completions"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_enterprise",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Enterprise",
+      "monthly_fee_micro_usd": 39000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 100000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Enterprise 企业席位（代码库索引、深度治理与高额共享额度池）",
+      "description_en": "GitHub Copilot Enterprise per-seat tier with repository indexing and enterprise agent governance.",
+      "vendor_id": "github",
+      "tier": "enterprise",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 39,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 6.67,
+      "highlights": [
+        "GitHub Enterprise Cloud integration",
+        "Codebase-aware chat & custom knowledge bases",
+        "Large pooled AI Credits allowance"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "copilot_max",
+      "provider_id": "github_copilot",
+      "plan_name": "GitHub Copilot Max",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 200000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "GitHub Copilot Max 旗舰个人订阅（含每月 20,000 AI Credits，适合高频 Agent 编排）",
+      "description_en": "GitHub Copilot Max top individual tier delivering 20,000 monthly AI Credits ($200 equivalent).",
+      "vendor_id": "github",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 13.33,
+      "highlights": [
+        "20,000 AI Credits/mo ($200 equivalent ceiling)",
+        "Priority access to new models & agents",
+        "Built for sustained agentic workloads"
+      ],
+      "official_pricing_url": "https://github.com/features/copilot/plans",
+      "official_limits_url": "https://docs.github.com/en/copilot/concepts/billing/ai-credits",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_credits",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_free",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Free",
+      "monthly_fee_micro_usd": 0,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 1500000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 6000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf 免费版（无限 Tab 补全与每日/每周基础 Cascade Agent 额度）",
+      "description_en": "Windsurf Free tier with unlimited Tab autocomplete and daily/weekly Cascade agent quota.",
+      "vendor_id": "windsurf",
+      "tier": "free",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 0,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 0.1,
+      "highlights": [
+        "Unlimited Tab autocomplete",
+        "Daily & weekly evaluation Cascade quota",
+        "Zero monthly cost"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_pro",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Pro",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 12000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 60000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Pro 个人主力订阅（日常日/周 Cascade 额度与全量前沿模型访问）",
+      "description_en": "Windsurf Pro individual plan with daily/weekly Cascade quotas and frontier model access.",
+      "vendor_id": "windsurf",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Daily & weekly Cascade agent quotas",
+        "Access to Claude, GPT, and SWE-1.5 models",
+        "Unlimited Tab autocomplete & previews"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_teams",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Teams",
+      "monthly_fee_micro_usd": 40000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 25000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 125000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Teams 团队席位订阅（按席位计费、集中账单与团队分析看板）",
+      "description_en": "Windsurf Teams per-seat workspace subscription with centralized billing and admin analytics.",
+      "vendor_id": "windsurf",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 40,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 2.08,
+      "highlights": [
+        "Centralized team billing & admin dashboard",
+        "Team usage analytics & priority support",
+        "Expanded daily/weekly Cascade quotas"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "windsurf_max",
+      "provider_id": "windsurf",
+      "plan_name": "Windsurf Max",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "24h",
+          "label": "24h 日额度",
+          "duration_hours": 24,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 600000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "Windsurf Max 旗舰个人订阅（10 倍级日/周 Cascade Agent 配额上限）",
+      "description_en": "Windsurf Max high-ceiling individual subscription engineered for all-day heavy Cascade agent loops.",
+      "vendor_id": "windsurf",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "10x Pro daily & weekly Cascade ceiling",
+        "Built for large-codebase continuous agent loops",
+        "Unlimited Tab autocomplete"
+      ],
+      "official_pricing_url": "https://windsurf.com/pricing",
+      "official_limits_url": "https://docs.windsurf.com/windsurf/accounts/usage",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

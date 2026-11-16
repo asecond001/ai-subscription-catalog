@@ -1,0 +1,1182 @@
+[
+  {
+    "template_id": "claude_pro",
+    "provider_id": "claude_code",
+    "plan_name": "Claude Pro",
+    "monthly_fee_micro_usd": 20000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 15000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 75000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Anthropic Claude Pro 个人订阅（含 5h 滚动、7d 周与 30d 月参考窗口）"
+  },
+  {
+    "template_id": "claude_team",
+    "provider_id": "claude_code",
+    "plan_name": "Claude Team",
+    "monthly_fee_micro_usd": 30000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 25000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 125000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 350000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Anthropic Claude Team 团队席位订阅参考窗口"
+  },
+  {
+    "template_id": "claude_max_5x",
+    "provider_id": "claude_code",
+    "plan_name": "Claude Max 5x",
+    "monthly_fee_micro_usd": 100000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 75000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 375000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 1000000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Anthropic Claude Max 5x 高配额订阅（5 倍 Pro 额度）"
+  },
+  {
+    "template_id": "claude_max_20x",
+    "provider_id": "claude_code",
+    "plan_name": "Claude Max 20x",
+    "monthly_fee_micro_usd": 200000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 1200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 3600000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Anthropic Claude Max 20x 重度编码订阅（20 倍 Pro 额度）"
+  },
+  {
+    "template_id": "codex_plus",
+    "provider_id": "codex",
+    "plan_name": "ChatGPT Plus / Codex",
+    "monthly_fee_micro_usd": 20000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 18000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 90000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "OpenAI ChatGPT Plus（自动对齐 Codex 日志官方 5h / 7d 限额）"
+  },
+  {
+    "template_id": "codex_team",
+    "provider_id": "codex",
+    "plan_name": "ChatGPT Team / Codex",
+    "monthly_fee_micro_usd": 25000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 30000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 150000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "OpenAI ChatGPT Team 团队席位（自动对齐 Codex 日志官方 5h / 7d 限额）"
+  },
+  {
+    "template_id": "codex_pro",
+    "provider_id": "codex",
+    "plan_name": "ChatGPT Pro / Codex",
+    "monthly_fee_micro_usd": 200000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 150000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 900000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "OpenAI ChatGPT Pro 旗舰开发订阅（自动对齐 Codex 日志官方 5h / 7d 限额）"
+  },
+  {
+    "template_id": "google_ai_free",
+    "provider_id": "antigravity",
+    "plan_name": "Google AI Free",
+    "monthly_fee_micro_usd": 0,
+    "windows": [
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 15000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Google AI Free / Antigravity 个人免费周额度窗口"
+  },
+  {
+    "template_id": "google_ai_plus",
+    "provider_id": "antigravity",
+    "plan_name": "Google AI Plus",
+    "monthly_fee_micro_usd": 4990000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 6000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 30000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Google AI Plus / Antigravity 基础订阅参考窗口"
+  },
+  {
+    "template_id": "google_ai_pro",
+    "provider_id": "antigravity",
+    "plan_name": "Google AI Pro",
+    "monthly_fee_micro_usd": 19990000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 20000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 100000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Google AI Pro / Antigravity 标准开发订阅（5h 滚动 + 7d 周额度）"
+  },
+  {
+    "template_id": "google_ai_ultra_5x",
+    "provider_id": "antigravity",
+    "plan_name": "Google AI Ultra 5x",
+    "monthly_fee_micro_usd": 99990000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 100000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 500000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Google AI Ultra 5x / Antigravity 进阶开发订阅（5 倍 Pro 额度）"
+  },
+  {
+    "template_id": "google_ai_ultra",
+    "provider_id": "antigravity",
+    "plan_name": "Google AI Ultra 20x",
+    "monthly_fee_micro_usd": 199990000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 250000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 1250000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Google AI Ultra 20x / Antigravity 旗舰订阅（20 倍 Pro 额度）"
+  },
+  {
+    "template_id": "gemini_enterprise",
+    "provider_id": "antigravity",
+    "plan_name": "Gemini Enterprise",
+    "monthly_fee_micro_usd": 30000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 40000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Gemini Enterprise / Code Assist 企业席位参考窗口"
+  },
+  {
+    "template_id": "kimi_code_plus",
+    "provider_id": "kimi_code",
+    "plan_name": "Kimi Plus (Moderato)",
+    "monthly_fee_micro_usd": 19000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 8000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 40000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Kimi Plus / Moderato 个人订阅（含 5h 滚动、7d 周与 30d 月度限额）"
+  },
+  {
+    "template_id": "kimi_code_allegretto",
+    "provider_id": "kimi_code",
+    "plan_name": "Kimi Pro (Allegretto)",
+    "monthly_fee_micro_usd": 39000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 25000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 125000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 400000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Kimi Pro / Allegretto 进阶编码会员（含 5h 滚动、7d 周与 30d 月度限额）"
+  },
+  {
+    "template_id": "kimi_code_max",
+    "provider_id": "kimi_code",
+    "plan_name": "Kimi Max (Allegro)",
+    "monthly_fee_micro_usd": 99000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 75000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 375000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 1200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Kimi Max / Allegro 高并发编码会员（含 5h 滚动、7d 周与 30d 月度限额）"
+  },
+  {
+    "template_id": "kimi_code_ultra",
+    "provider_id": "kimi_code",
+    "plan_name": "Kimi Ultra (Vivace)",
+    "monthly_fee_micro_usd": 199000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 180000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 900000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 2800000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Kimi Ultra / Vivace 旗舰编码会员（含 5h 滚动、7d 周与 30d 月度限额）"
+  },
+  {
+    "template_id": "minimax_coding_plus",
+    "provider_id": "minimax_code",
+    "plan_name": "MiniMax Coding Plus",
+    "monthly_fee_micro_usd": 7000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 8000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 40000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "MiniMax Coding Plus 基础编码套餐参考窗口"
+  },
+  {
+    "template_id": "minimax_coding_plan",
+    "provider_id": "minimax_code",
+    "plan_name": "MiniMax Coding Pro",
+    "monthly_fee_micro_usd": 15000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 18000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 90000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 280000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "MiniMax Coding Pro 编码订阅参考窗口（支持官方 Coding Plan 额度接口自动同步）"
+  },
+  {
+    "template_id": "minimax_token_plan",
+    "provider_id": "minimax_code",
+    "plan_name": "MiniMax Coding Max (Token Plan)",
+    "monthly_fee_micro_usd": 49000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h Token 窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "tokens",
+        "limit_value": 20000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "tokens",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "MiniMax Token Plan 按 Token 计量订阅参考模板"
+  },
+  {
+    "template_id": "qcode_daily_plan",
+    "provider_id": "qcode",
+    "plan_name": "QCode 标准日额度套餐",
+    "monthly_fee_micro_usd": 15000000,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 10000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "QCode 标准每日与月度额度参考模板"
+  },
+  {
+    "template_id": "qcode_pro_plan",
+    "provider_id": "qcode",
+    "plan_name": "QCode Pro 日额度套餐",
+    "monthly_fee_micro_usd": 45000000,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 35000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 700000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "QCode Pro 高配额每日与月度额度参考模板"
+  },
+  {
+    "template_id": "workbuddy_pro",
+    "provider_id": "workbuddy",
+    "plan_name": "Workbuddy Pro",
+    "monthly_fee_micro_usd": 20000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 15000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 150000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Workbuddy Pro 编码助手订阅参考模板"
+  },
+  {
+    "template_id": "codex_pro_100",
+    "provider_id": "codex",
+    "plan_name": "ChatGPT Pro 100 / Codex",
+    "monthly_fee_micro_usd": 100000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 80000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 480000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "OpenAI ChatGPT Pro 100 高频编码订阅（自动对齐 Codex 日志官方 5h / 7d 限额）"
+  },
+  {
+    "template_id": "codex_pro_500",
+    "provider_id": "codex",
+    "plan_name": "ChatGPT Pro 500 / Codex Ultrafast",
+    "monthly_fee_micro_usd": 500000000,
+    "windows": [
+      {
+        "window_id": "5h",
+        "label": "5h 滚动窗口",
+        "duration_hours": 5,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 400000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 2400000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "OpenAI ChatGPT Pro 500 极速旗舰订阅（支持 Ultrafast 高速推理模式）"
+  },
+  {
+    "template_id": "cursor_free",
+    "provider_id": "cursor",
+    "plan_name": "Cursor Free",
+    "monthly_fee_micro_usd": 0,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 5000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Cursor 免费体验档（有限的 Tab 补全与 Agent 试用额度）"
+  },
+  {
+    "template_id": "cursor_plus",
+    "provider_id": "cursor",
+    "plan_name": "Cursor Plus",
+    "monthly_fee_micro_usd": 8000000,
+    "windows": [
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 10000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 30000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Cursor Plus 入门订阅（每周基础 Cursor / Grok 原生模型额度池）"
+  },
+  {
+    "template_id": "cursor_premium",
+    "provider_id": "cursor",
+    "plan_name": "Cursor Premium",
+    "monthly_fee_micro_usd": 30000000,
+    "windows": [
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 35000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Cursor Premium 主力订阅（Plus 的 4 倍用量，支持 Cloud Agents 与 Bugbot）"
+  },
+  {
+    "template_id": "cursor_super",
+    "provider_id": "cursor",
+    "plan_name": "Cursor Super",
+    "monthly_fee_micro_usd": 100000000,
+    "windows": [
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 450000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Cursor Super 高配额订阅（Plus 的 15 倍用量与高峰期优先路由）"
+  },
+  {
+    "template_id": "cursor_ultra",
+    "provider_id": "cursor",
+    "plan_name": "Cursor Ultra",
+    "monthly_fee_micro_usd": 200000000,
+    "windows": [
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 300000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 1200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Cursor Ultra 旗舰订阅（Plus 的 50 倍用量与最新模型抢先体验）"
+  },
+  {
+    "template_id": "copilot_free",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Free",
+    "monthly_fee_micro_usd": 0,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 2000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot 免费版（含每月基础补全、对话与轻量 Agent 试用额度）"
+  },
+  {
+    "template_id": "copilot_pro",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Pro",
+    "monthly_fee_micro_usd": 10000000,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 15000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot Pro 个人订阅（含无限补全与每月 1,500 AI Credits）"
+  },
+  {
+    "template_id": "copilot_business",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Business",
+    "monthly_fee_micro_usd": 19000000,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 30000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot Business 团队席位（组织级策略控制、IP 赔偿与共享额度池）"
+  },
+  {
+    "template_id": "copilot_pro_plus",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Pro+",
+    "monthly_fee_micro_usd": 39000000,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 70000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot Pro+ 进阶个人订阅（含每月 7,000 AI Credits 与旗舰模型访问）"
+  },
+  {
+    "template_id": "copilot_enterprise",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Enterprise",
+    "monthly_fee_micro_usd": 39000000,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 100000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot Enterprise 企业席位（代码库索引、深度治理与高额共享额度池）"
+  },
+  {
+    "template_id": "copilot_max",
+    "provider_id": "github_copilot",
+    "plan_name": "GitHub Copilot Max",
+    "monthly_fee_micro_usd": 100000000,
+    "windows": [
+      {
+        "window_id": "30d",
+        "label": "30d 月度限额",
+        "duration_hours": 720,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 200000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "GitHub Copilot Max 旗舰个人订阅（含每月 20,000 AI Credits，适合高频 Agent 编排）"
+  },
+  {
+    "template_id": "windsurf_free",
+    "provider_id": "windsurf",
+    "plan_name": "Windsurf Free",
+    "monthly_fee_micro_usd": 0,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 1500000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 6000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Windsurf 免费版（无限 Tab 补全与每日/每周基础 Cascade Agent 额度）"
+  },
+  {
+    "template_id": "windsurf_pro",
+    "provider_id": "windsurf",
+    "plan_name": "Windsurf Pro",
+    "monthly_fee_micro_usd": 20000000,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 12000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 60000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Windsurf Pro 个人主力订阅（日常日/周 Cascade 额度与全量前沿模型访问）"
+  },
+  {
+    "template_id": "windsurf_teams",
+    "provider_id": "windsurf",
+    "plan_name": "Windsurf Teams",
+    "monthly_fee_micro_usd": 40000000,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 25000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 125000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Windsurf Teams 团队席位订阅（按席位计费、集中账单与团队分析看板）"
+  },
+  {
+    "template_id": "windsurf_max",
+    "provider_id": "windsurf",
+    "plan_name": "Windsurf Max",
+    "monthly_fee_micro_usd": 200000000,
+    "windows": [
+      {
+        "window_id": "24h",
+        "label": "24h 日额度",
+        "duration_hours": 24,
+        "rolling": false,
+        "unit": "micro_usd",
+        "limit_value": 120000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      },
+      {
+        "window_id": "7d",
+        "label": "7d 周额度",
+        "duration_hours": 168,
+        "rolling": true,
+        "unit": "micro_usd",
+        "limit_value": 600000000,
+        "warning_percent": 80,
+        "critical_percent": 95
+      }
+    ],
+    "description": "Windsurf Max 旗舰个人订阅（10 倍级日/周 Cascade Agent 配额上限）"
+  }
+]

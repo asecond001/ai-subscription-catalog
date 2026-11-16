@@ -1,0 +1,193 @@
+{
+  "provider": {
+    "provider_id": "minimax_code",
+    "vendor_id": "minimax",
+    "display_name": "MiniMax Code",
+    "vendor_name": "MiniMax",
+    "category": "coding_plan",
+    "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+    "official_docs_url": "https://platform.minimax.io/docs/coding-plan/intro",
+    "quota_observation_modes": ["official_api", "local_log", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "minimax_coding_plus",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Plus",
+      "monthly_fee_micro_usd": 7000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 8000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 40000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Coding Plus 基础编码套餐参考窗口",
+      "description_en": "MiniMax Coding Plus entry coding subscription compatible with Claude Code and OpenCode.",
+      "vendor_id": "minimax",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 7,
+        "annual_monthly_usd": null,
+        "monthly_cny": 49,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Official Coding Plan remains API endpoint",
+        "Compatible with Claude Code, Cursor & OpenCode",
+        "5h rolling + 7d + 30d reference windows"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "minimax_coding_plan",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Pro",
+      "monthly_fee_micro_usd": 15000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 18000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 90000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "micro_usd",
+          "limit_value": 280000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Coding Pro 编码订阅参考窗口（支持官方 Coding Plan 额度接口自动同步）",
+      "description_en": "MiniMax Coding Pro subscription with official Coding Plan quota API auto-sync.",
+      "vendor_id": "minimax",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 15,
+        "annual_monthly_usd": null,
+        "monthly_cny": 99,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 2.33,
+      "highlights": [
+        "Official Coding Plan quota API sync",
+        "Expanded 5h & 7d multi-turn coding quota",
+        "Drop-in Anthropic/OpenAI compatible endpoint"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "minimax_token_plan",
+      "provider_id": "minimax_code",
+      "plan_name": "MiniMax Coding Max (Token Plan)",
+      "monthly_fee_micro_usd": 49000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h Token 窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "tokens",
+          "limit_value": 20000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "30d",
+          "label": "30d 月度限额",
+          "duration_hours": 720,
+          "rolling": false,
+          "unit": "tokens",
+          "limit_value": 120000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "MiniMax Token Plan 按 Token 计量订阅参考模板",
+      "description_en": "MiniMax Coding Max / Token Plan measured directly in tokens across 5h and 30d windows.",
+      "vendor_id": "minimax",
+      "tier": "max",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 49,
+        "annual_monthly_usd": null,
+        "monthly_cny": 299,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 7,
+      "highlights": [
+        "Token-denominated 5h (20M) & 30d (120M) caps",
+        "Official Coding Plan API integration",
+        "Built for long-context agentic coding"
+      ],
+      "official_pricing_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "official_limits_url": "https://platform.minimax.io/docs/coding-plan/intro",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}

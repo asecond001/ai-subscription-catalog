@@ -1,0 +1,279 @@
+{
+  "provider": {
+    "provider_id": "codex",
+    "vendor_id": "openai",
+    "display_name": "Codex",
+    "vendor_name": "OpenAI",
+    "category": "cli_and_ide_agent",
+    "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+    "official_docs_url": "https://developers.openai.com/codex",
+    "quota_observation_modes": ["local_log", "otlp", "local_estimation"]
+  },
+  "plans": [
+    {
+      "template_id": "codex_plus",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Plus / Codex",
+      "monthly_fee_micro_usd": 20000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 18000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 90000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Plus（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Plus subscription including Codex CLI & IDE usage synced via official 5h/7d rate-limit logs.",
+      "vendor_id": "openai",
+      "tier": "plus",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 20,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 1,
+      "highlights": [
+        "Codex CLI, IDE extension & web agent",
+        "Official 5h & 7d rate_limits emitted in local logs",
+        "Shared usage pool with ChatGPT Plus"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_team",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Team / Codex",
+      "monthly_fee_micro_usd": 25000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 30000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Team 团队席位（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Business/Team per-seat workspace plan with expanded Codex quotas.",
+      "vendor_id": "openai",
+      "tier": "team",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 25,
+        "annual_monthly_usd": 20,
+        "monthly_cny": null,
+        "per_seat": true
+      },
+      "multiplier_vs_base": 1.67,
+      "highlights": [
+        "Team data exclusion from training by default",
+        "Flexible workspace credits & admin controls",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro_100",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro 100 / Codex",
+      "monthly_fee_micro_usd": 100000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 80000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 480000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 100 高频编码订阅（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Pro 100 tier built for daily heavy Codex engineering workloads.",
+      "vendor_id": "openai",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 100,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 5,
+      "highlights": [
+        "Pro 100 tier for daily agentic coding",
+        "High-reasoning effort model allocations",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro / Codex",
+      "monthly_fee_micro_usd": 200000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 150000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 900000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 旗舰开发订阅（自动对齐 Codex 日志官方 5h / 7d 限额）",
+      "description_en": "OpenAI ChatGPT Pro 200 flagship individual subscription with deep Codex headroom.",
+      "vendor_id": "openai",
+      "tier": "pro",
+      "status": "active",
+      "compatibility_tags": ["tokentracker-v0.2.4"],
+      "billing": {
+        "monthly_usd": 200,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 10,
+      "highlights": [
+        "10x Plus-class headroom for Codex",
+        "Priority Pro reasoning allocations",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "official_doc",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    },
+    {
+      "template_id": "codex_pro_500",
+      "provider_id": "codex",
+      "plan_name": "ChatGPT Pro 500 / Codex Ultrafast",
+      "monthly_fee_micro_usd": 500000000,
+      "windows": [
+        {
+          "window_id": "5h",
+          "label": "5h 滚动窗口",
+          "duration_hours": 5,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        },
+        {
+          "window_id": "7d",
+          "label": "7d 周额度",
+          "duration_hours": 168,
+          "rolling": true,
+          "unit": "micro_usd",
+          "limit_value": 2400000000,
+          "warning_percent": 80,
+          "critical_percent": 95
+        }
+      ],
+      "description": "OpenAI ChatGPT Pro 500 极速旗舰订阅（支持 Ultrafast 高速推理模式）",
+      "description_en": "OpenAI ChatGPT Pro 500 top-tier individual plan featuring Ultrafast mode for Codex.",
+      "vendor_id": "openai",
+      "tier": "ultra",
+      "status": "active",
+      "compatibility_tags": [],
+      "billing": {
+        "monthly_usd": 500,
+        "annual_monthly_usd": null,
+        "monthly_cny": null,
+        "per_seat": false
+      },
+      "multiplier_vs_base": 25,
+      "highlights": [
+        "Maximum individual Codex quota ceiling",
+        "Ultrafast low-latency generation mode",
+        "Official 5h & 7d log snapshots"
+      ],
+      "official_pricing_url": "https://openai.com/chatgpt/pricing/",
+      "official_limits_url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "verification": {
+        "price_source": "official_page",
+        "quota_source": "reference_estimate",
+        "last_verified_at": "2026-11-16T00:00:00Z"
+      }
+    }
+  ]
+}
